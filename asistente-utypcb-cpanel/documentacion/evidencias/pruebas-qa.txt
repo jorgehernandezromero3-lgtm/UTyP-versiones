@@ -1,0 +1,95 @@
+# Resultados de la instalación limpia (QA)
+
+Fecha de ejecución: 6 de noviembre de 2026
+Base de datos aislada: `utypcb_asistente_qa`
+Servidor: MariaDB 13.0.2 (compatible con MariaDB 10.11)
+PHP: 8.5.12 CLI
+
+Esta corrida se hizo desde cero para comprobar que el paquete no depende de datos
+de desarrollo: se creó la base, se importó el esquema, se cargó la semilla y se
+ejecutaron las pruebas sobre esa instalación.
+
+## 1. Esquema e importación
+
+```text
+Esquema importado: database/schema.sql
+Áreas: 5
+Intenciones: 156
+Variantes: 780
+Nuevas: 156
+Actualizadas: 0
+Omitidas: 0
+Variantes insertadas: 780
+```
+
+## 2. Evaluación del motor
+
+```text
+Preguntas: 100
+Aciertos: 100 (100.0%)
+Objetivo: 85.0% -> CUMPLE
+Contexto: 5/5
+Latencia fría: 29.0 ms | promedio: 5.3 ms | p95: 8.6 ms
+```
+
+Las 100 preguntas del conjunto de evaluación no son idénticas a ninguna de las
+780 variantes de la semilla (comprobación de duplicados exactos: 0).
+
+## 3. Sincronización con datos del sitio (idempotencia)
+
+```text
+Primera ejecución:
+Sincronización terminada: 19 intención(es) actualizada(s) y pendiente(s) de validación.
+Detalle: 5 de 5 fuentes legibles; 19 respuestas derivadas; 19 intención(es) actualizada(s).
+Actualizados: 19
+
+Segunda ejecución:
+Sincronización terminada sin cambios: las respuestas ya estaban al día.
+Detalle: 5 de 5 fuentes legibles; 19 respuestas derivadas; 0 intención(es) actualizada(s).
+Actualizados: 0
+```
+
+Las fuentes usadas son los archivos de ejemplo de `tests/fixtures/site_data`,
+no los archivos reales del sitio.
+
+## 4. Retención y purga
+
+Se insertaron tres registros vencidos en la base QA y se ejecutó
+`php private/bin/purgar.php`:
+
+```text
+Preguntas sin respuesta eliminadas: 1
+Eventos agregados eliminados: 0
+Contadores de límite eliminados: 1
+```
+
+El evento de prueba todavía estaba dentro de los 365 días de retención. Se
+ajustó su fecha a más de 365 días y se repitió la purga:
+
+```text
+Preguntas sin respuesta eliminadas: 0
+Eventos agregados eliminados: 1
+Contadores de límite eliminados: 0
+```
+
+Conteo final de registros vencidos: 0 en las tres tablas.
+
+## 5. Latencia HTTP real
+
+15 preguntas enviadas por HTTP al endpoint `chat.php` de la instalación QA:
+
+```text
+Total: 15 | Promedio: 44.8 ms | p95: 55.5 ms | Máximo: 66.0 ms
+```
+
+Todas las respuestas fueron HTTP 200. El detalle por muestra está en
+`resultados-latencia-15.json`.
+
+## 6. Acceso administrativo
+
+- La página de acceso respondió 200 y mostró el formulario.
+- El inicio de sesión con la cuenta de prueba redirigió al panel general.
+- Se probó el caso de una sesión que apunta a una cuenta eliminada: el panel
+  redirige al acceso y vuelve a mostrar el formulario, sin error 500.
+  Este caso se detectó durante las capturas y quedó corregido en
+  `private/src/Admin/AdminApp.php`.

@@ -1,0 +1,193 @@
+{
+    "generado_en": "2026-11-06T18:14:49-06:00",
+    "total": 37,
+    "correctas": 37,
+    "fallos": 0,
+    "pruebas": [
+        {
+            "prueba": "GET estado responde 200",
+            "ok": true,
+            "detalle": "HTTP 200"
+        },
+        {
+            "prueba": "Estado entrega token CSRF de 64 hex",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Límite de mensaje de 300 caracteres",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Sugerencias iniciales presentes",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Sin cabecera CORS abierta",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "X-Content-Type-Options nosniff",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "X-Frame-Options SAMEORIGIN",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Referrer-Policy no-referrer",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Cache-Control no-store",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Cookie de sesión HttpOnly",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Cookie de sesión SameSite=Lax",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Cookie de sesión Path=\/",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Pregunta válida responde 200",
+            "ok": true,
+            "detalle": "HTTP 200"
+        },
+        {
+            "prueba": "Respuesta incluye texto",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Respuesta incluye fuente oficial",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Respuesta incluye confianza",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Latencia HTTP bajo 2000 ms",
+            "ok": true,
+            "detalle": "58.3 ms"
+        },
+        {
+            "prueba": "POST sin CSRF rechazado (403)",
+            "ok": true,
+            "detalle": "HTTP 403"
+        },
+        {
+            "prueba": "POST con CSRF inválido rechazado (403)",
+            "ok": true,
+            "detalle": "HTTP 403"
+        },
+        {
+            "prueba": "Content-Type no JSON rechazado (415)",
+            "ok": true,
+            "detalle": "HTTP 415"
+        },
+        {
+            "prueba": "Mensaje de 350 caracteres rechazado (422)",
+            "ok": true,
+            "detalle": "HTTP 422"
+        },
+        {
+            "prueba": "Error de longitud explica el máximo",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Cuerpo mayor a 4 KB rechazado (413)",
+            "ok": true,
+            "detalle": "HTTP 413"
+        },
+        {
+            "prueba": "Mensaje no textual rechazado (422)",
+            "ok": true,
+            "detalle": "HTTP 422"
+        },
+        {
+            "prueba": "GET sobre chat rechazado (405)",
+            "ok": true,
+            "detalle": "HTTP 405"
+        },
+        {
+            "prueba": "PUT sobre estado rechazado (405)",
+            "ok": true,
+            "detalle": "HTTP 405"
+        },
+        {
+            "prueba": "Origen externo rechazado (403)",
+            "ok": true,
+            "detalle": "HTTP 403"
+        },
+        {
+            "prueba": "Preflight OPTIONS rechazado (405)",
+            "ok": true,
+            "detalle": "HTTP 405"
+        },
+        {
+            "prueba": "Preflight no concede CORS",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Límite por sesión activa 429",
+            "ok": true,
+            "detalle": "HTTP 429 tras 20 envíos"
+        },
+        {
+            "prueba": "429 incluye Retry-After",
+            "ok": true,
+            "detalle": "299"
+        },
+        {
+            "prueba": "Pregunta fuera de alcance responde 200",
+            "ok": true,
+            "detalle": "HTTP 200"
+        },
+        {
+            "prueba": "Correo redactado",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Teléfono redactado",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "CURP redactada",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Número largo redactado",
+            "ok": true,
+            "detalle": ""
+        },
+        {
+            "prueba": "Pregunta original no se guarda",
+            "ok": true,
+            "detalle": ""
+        }
+    ]
+}

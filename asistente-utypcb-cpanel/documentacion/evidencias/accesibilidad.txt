@@ -1,0 +1,5 @@
+base: {"panel_oculto_inicial":true,"rol_dialogo":"dialog","etiqueta_dialogo":"Asistente Coyote de la UTyPCB","lanzador_expandido":"false","lanzador_controla":"utyp-chat-panel","cerrar_nombre":"Cerrar el asistente","log_vivo":"polite","etiqueta_campo":"Escribe tu pregunta","campo_descrito":"utyp-chat-contador utyp-chat-privacidad"}
+abierto: {"panel_visible":true,"lanzador_expandido":"true","foco_dentro":true,"foco_actual":"SECTION Asistente Coyote de la UTyPCB"}
+tabulación dentro del panel: 14/14; fugas: []
+cerrado con Escape: {"panel_oculto":true,"lanzador_expandido":"false","foco_en_lanzador":true}
+reduced motion: {"animacion":"1e-06s","transicion":"1e-06s"}

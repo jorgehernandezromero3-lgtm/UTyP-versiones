@@ -1,0 +1,23 @@
+<?php
+/*
+ * Integración del Asistente Coyote en el sitio de la UTyPCB.
+ *
+ * Copia estas líneas al final de footer.inc.php, justo antes de </body>.
+ * Ajusta las rutas solamente si instalaste el asistente en otra carpeta.
+ *
+ * Requisitos del sitio anfitrión:
+ *   - La página ya debe imprimir el sprite de iconos del sitio
+ *     (icons.inc.php) con los símbolos: i-huella, i-cerrar, i-flecha,
+ *     i-destello. Si no existen, el widget mostrará botones sin icono.
+ *   - El navegador debe poder cargar /asistente/widget.css y
+ *     /asistente/widget.js desde la misma página.
+ *
+ * El widget no abre conexión con la base de datos al dibujarse.
+ * Solo consulta /asistente/estado.php cuando la persona abre el panel,
+ * de modo que una caída del servicio no rompe el sitio.
+ */
+
+$utypAsistenteBase = '/asistente';
+$utypAsistenteAviso = '/asistente/privacidad.php';
+
+require __DIR__ . '/asistente/widget.php';
